@@ -1,7 +1,12 @@
-import loadHomePageG from './homePageG'
 
-function initilizeHomePage() {
-    loadHomePageG
-};
+import tabs from './tabs';
+import createTodo from './createTodo';
+console.log('pageLoadWorks')
 
-export default initilizeHomePage
+function initializeHomePage() {
+    
+    tabs();
+    createTodo();
+}
+
+export default initializeHomePage;

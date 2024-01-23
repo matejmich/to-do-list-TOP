@@ -9,61 +9,62 @@
 </head>
 <body>
     <div id="content">
-        <!-- main window -->
         <div id="todo-list">
             <h1>// To do list</h1>
             <div class="home">
                 <h2>Home</h2>
                 <div class="side-container" id="home-container">
-                    <div id="generalTitle" class="clickable">General</div>
-                    <div id="todayTitle" class="clickable">Today</div>
-                    <div id="completedTitle" class="clickable">Completed</div>
+                    <div id="generalTitle" class="clickable tab">General</div>
+                    <div id="todayTitle" class="clickable tab">Today</div>
+                    <div id="completedTitle" class="clickable tab">Completed</div>
+                    <div id="projectsTitle" class="clickable tab">Projects</div>
                 </div>
             </div>
             <div id="projects">
-                <h2>Projects</h1>
+                <h2>Projects</h2>
                 <div class="side-container" id="projects-container">
-                    <div>Demo Project</div>
+                    <!-- You can dynamically add projects here -->
                 </div>
+                <button class="newBtn" id="createProjectBtn">+ Create Project</button>
             </div>
-
         </div>
         <div id="main">
-            <!-- example -->
-            <h1>General</h1>
+            <h1 id="mainCategoryTitle">Hello, select a folder and start adding Todos!</h1>
             <p>A general list of todos</p>
-            <button class="newBtn">+ Create Todo</button>
-            <div class="todoTask-container">
-                <div class="todoTask">
-                    
+            <button class="newBtn" id="createTodoBtn">+ Create Todo</button>
+            <div id="todoTask-container">
+                
+            </div>
+        </div>
+        <div id="create-todo" class="displayNone">
+            <div class="blur"></div>
+            <div id="create-todo-container">
+                <div id="create-todo-container-inner">
+                    <h1 class="x" id="closeTodo">&times;</h1>
+                    <h2>Create a new Todo</h2>
+                    <form id="create-todo-form">
+                        <label for="todo-name">Name</label>
+                        <input type="text" name="todo-name" id="todo-name" required>
+                        <label for="todo-date">Date</label>
+                        <input type="date" name="todo-date" id="todo-date" required>
+                        <div id="important-container">
+                            <label for="todo-important">Important</label>
+                            <input type="checkbox" name="todo-important" id="todo-important">
+                        </div> 
+                        <button class="submitBtn" id="createTodoSubmit">Submit</button>
+                    </form>
                 </div>
             </div>
-           
-
-
-            <!-- ^^ -->
         </div>
-
-       
-
-    </div>
-     <!-- create todo form -->
-     <div id="create-todo">
-        <div class="blur"></div>
-        <div id="create-todo-container">
-            <div id="create-todo-container-inner">
-                <h1 class="x">&times;</h1>
-                <h2>Create a new Todo</h2>
-                <form id="create-todo-form">
-                    <label for="todo-name">Name</label>
-                    <input type="text" name="todo-name" id="todo-name">
-                    <label for="todo-date">Date</label>
-                    <input type="date" name="todo-date" id="todo-date">
-                    <div id="important-container">
-                        <label for="todo-important">Important</label>
-                        <input type="checkbox" name="todo-important" id="todo-important"></input>
-                    </div> 
-                    <button class="submitBtn">Submit</button>
+        <div id="create-project" class="displayNone">
+            <div class="blur-p"></div>
+            <div id="create-project-container">
+                <h1 class="x" id="closeTodo">&times;</h1>
+                <h2>Create a new Project</h2>
+                <form id="create-project-form">
+                    <label for="project-name">Name</label>
+                        <input type="text" name="project-name" id="project-name" required>
+                    <button class="submitBtn" id="createTodoSubmit">Submit</button>
                 </form>
             </div>
         </div>
