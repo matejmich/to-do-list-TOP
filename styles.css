@@ -1,30 +1,30 @@
 body {
-height: 100vh;
-margin: 0;
-background: rgb(255,197,237);
-background: linear-gradient(45deg, rgba(255,197,237,1) 0%, rgba(190,134,255,1) 41%, rgba(136,235,255,1) 87%, rgba(170,255,235,1) 100% );
-background-repeat: no-repeat;
-display: flex;
-justify-content: center;
-align-items: center;
-font-family: monospace;
+    height: 100vh;
+    margin: 0;
+    background: rgb(255, 197, 237);
+    background: linear-gradient(45deg, rgba(255, 197, 237, 1) 0%, rgba(190, 134, 255, 1) 41%, rgba(136, 235, 255, 1) 87%, rgba(170, 255, 235, 1) 100%);
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
 }
+
 button {
     cursor: pointer;
     font-weight: bold;
 }
-
 
 #content {
     width: 1000px;
     height: 800px;
     border-radius: 40px;
     display: flex;
-    box-shadow: 4px -1px 55px -4px rgba(0,0,0,0.75);
--webkit-box-shadow: 4px -1px 55px -4px rgba(0,0,0,0.75);
--moz-box-shadow: 4px -1px 55px -4px rgba(0,0,0,0.75);
-    
+    box-shadow: 4px -1px 55px -4px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 4px -1px 55px -4px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 4px -1px 55px -4px rgba(0, 0, 0, 0.75);
 }
+
 #todo-list {
     width: 30%;
     background-color: rgba(241, 241, 241, 0.8);
@@ -34,6 +34,7 @@ button {
     display: flex;
     flex-direction: column;
 }
+
 #main {
     width: 70%;
     background-color: rgba(209, 172, 137, 0.4);
@@ -48,11 +49,12 @@ button {
 
 h1 {
     text-align: center;
-    
 }
+
 h2 {
     margin-top: 0;
 }
+
 .x {
     text-align: right;
     margin: 0;
@@ -71,8 +73,19 @@ h2 {
     width: 100%;
 }
 
+.blur-p {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    backdrop-filter: blur(20px);
+    width: 100%;
+    width: 100%;
+}
+
 #create-todo {
-    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -92,9 +105,9 @@ h2 {
     font-size: 20px;
     width: 400px;
     border-radius: 20px;
-    box-shadow: 4px -1px 55px -4px rgba(0,0,0,0.75);
--webkit-box-shadow: 4px -1px 55px -4px rgba(0,0,0,0.75);
--moz-box-shadow: 4px -1px 55px -4px rgba(0,0,0,0.75);
+    box-shadow: 4px -1px 55px -4px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 4px -1px 55px -4px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 4px -1px 55px -4px rgba(0, 0, 0, 0.75);
 }
 
 #create-todo-form {
@@ -112,8 +125,9 @@ h2 {
     cursor: pointer;
     font-weight: bold;
 }
+
 .submitBtn:hover {
-    background-color: white
+    background-color: white;
 }
 
 .newBtn {
@@ -122,13 +136,13 @@ h2 {
     border: none;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: -1px -1px 23px -4px rgba(0,0,0,0.75);
-    -webkit-box-shadow: -1px -1px 23px -4px rgba(0,0,0,0.75);
-    -moz-box-shadow: -1px -1px 23px -4px rgba(0,0,0,0.75);
+    box-shadow: -1px -1px 23px -4px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: -1px -1px 23px -4px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -1px -1px 23px -4px rgba(0, 0, 0, 0.75);
 }
+
 .newBtn:hover {
     background-color: white;
-    
 }
 
 .underline {
@@ -137,4 +151,28 @@ h2 {
 
 .clickable {
     cursor: pointer;
+}
+
+#todoTask-container {
+    margin-top: 10px;
+    border-top: 3px solid white;
+    padding-top: 10px;
+    overflow: scroll;
+    height: 600px;
+}
+
+.todoTask {
+    margin: 5px;
+    width: 100fr;
+    background-color: white;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid rgb(151, 151, 151);
+    display: flex;
+    padding: 5px;
+    font-size: 20px;
+}
+
+.displayNone {
+    display: none;
 }
