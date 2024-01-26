@@ -48,7 +48,7 @@ function renderProjects(projects) {
         projectDiv.setAttribute('data-category', project.id);
         projectDiv.textContent = project.name;
 
-        // Add delete button for each project
+        
         const deleteButton = document.createElement('button');
         deleteButton.innerHTML = '&times;';
         deleteButton.classList.add('delete-project-btn');
@@ -60,38 +60,22 @@ function renderProjects(projects) {
     });
 }
 function handleDeleteProject(projectId) {
-    // Retrieve existing projects from local storage
     const existingProjects = JSON.parse(localStorage.getItem('projects')) || [];
-
-    // Filter out the project with the matching id
     const updatedProjects = existingProjects.filter(project => project.id !== projectId);
-
-    // Save the updated array back to local storage
     localStorage.setItem('projects', JSON.stringify(updatedProjects));
-
-    // Delete associated todos
     deleteTodosByProjectId(projectId);
 
-    // Render updated projects
     renderProjects(updatedProjects);
 
-    // If the deleted project was selected, switch to the 'General' tab
     if (getSelectedProject() === projectId) {
         markSelectedTab('General');
     }
 }
 
 function deleteTodosByProjectId(projectId) {
-    // Retrieve existing todos from local storage
     const existingTodos = JSON.parse(localStorage.getItem('todos')) || [];
-
-    // Filter out todos with the matching projectId
     const updatedTodos = existingTodos.filter(todo => todo.projectId !== projectId);
-
-    // Save the updated array back to local storage
     localStorage.setItem('todos', JSON.stringify(updatedTodos));
-
-    // Render updated todos based on the selected project/category
     const selectedProject = getSelectedProject();
     renderTodosByCategory(selectedProject);
 }
@@ -137,8 +121,6 @@ function markSelectedProject(projectId) {
         }
     });
 }
-
-// Function to render todos based on the selected project/category
 function renderTodosByCategory(category) {
     const todoTaskContainer = document.getElementById('todoTask-container');
     todoTaskContainer.innerHTML = '';
@@ -185,25 +167,17 @@ function renderTodosByCategory(category) {
   
 }
 
-// Function to handle delete todo
 function handleDeleteTodo(todo) {
-    // Retrieve the currently selected project and tab
     const selectedProject = getSelectedProject();
     const selectedTab = getSelectedTab();
-
-    // Retrieve existing todos from local storage
     const existingTodos = JSON.parse(localStorage.getItem('todos')) || [];
 
-    // Filter out the todo with the matching id
     const updatedTodos = existingTodos.filter(existingTodo => existingTodo.id !== todo.id);
 
-    // Save the updated array back to local storage
     localStorage.setItem('todos', JSON.stringify(updatedTodos));
 
-    // Render updated todos based on the selected project/category
     renderTodosByCategory(selectedProject);
 
-    // Reapply the selected tab
     markSelectedTab(selectedTab);
     markSelectedProject(selectedProject);
 }
@@ -313,7 +287,7 @@ function submitTodoForm(event) {
 
     if (todoName && date) {
         const newTodo = {
-            id: Date.now(), // Using timestamp as the id
+            id: Date.now(),
             name: todoName,
             important: important,
             date: date,
