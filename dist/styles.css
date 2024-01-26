@@ -27,7 +27,7 @@ button {
 
 #todo-list {
     width: 30%;
-    background-color: rgba(241, 241, 241, 0.8);
+    background-color: rgb(248, 232, 250);
     border-bottom-left-radius: 40px;
     border-top-left-radius: 40px;
     padding: 15px;
@@ -79,7 +79,7 @@ h2 {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 0;
+    z-index: -1;
     backdrop-filter: blur(20px);
     width: 100%;
     width: 100%;
@@ -92,13 +92,17 @@ h2 {
     right: 0;
     bottom: 0;
     z-index: 1;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
+#create-todo.displayNone {
+    display: none;
+}
+
 #create-todo-container {
-    margin-top: 30vh;
-    margin-left: 30vh;
+    position: relative;  /* Set position to relative */
     z-index: 2;
     background-color: white;
     padding: 30px;
@@ -116,7 +120,7 @@ h2 {
 }
 
 .submitBtn {
-    background-color: rgb(148, 243, 255);
+    background-color: rgb(207, 203, 207);
     border: none;
     width: 150px;
     font-size: 20px;
@@ -124,25 +128,28 @@ h2 {
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
+    margin-top: 15px;
 }
 
 .submitBtn:hover {
-    background-color: white;
+    background-color: rgb(124, 124, 124);
+    color: white;
 }
 
 .newBtn {
     font-size: 20px;
-    background-color: rgba(241, 241, 241, 0.8);
+    background-color: rgba(245, 245, 245, 0.8);
     border: none;
     padding: 10px;
     border-radius: 10px;
     box-shadow: -1px -1px 23px -4px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: -1px -1px 23px -4px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: -1px -1px 23px -4px rgba(0, 0, 0, 0.75);
+    margin-top: 15px;
 }
 
 .newBtn:hover {
-    background-color: white;
+    background-color: rgb(247, 218, 248);
 }
 
 .underline {
@@ -155,24 +162,170 @@ h2 {
 
 #todoTask-container {
     margin-top: 10px;
-    border-top: 3px solid white;
+    border-top: 3px solid rgb(255, 255, 255);
     padding-top: 10px;
-    overflow: scroll;
+    overflow: auto;
     height: 600px;
+}
+
+#todoTask-container::-webkit-scrollbar {
+    width: 12px;
+}
+
+#todoTask-container::-webkit-scrollbar-thumb {
+    background-color: rgba(81, 94, 110, 0.8);
+    border-radius: 10px;
+}
+
+#todoTask-container::-webkit-scrollbar-track {
+    background-color: white;
+    border-radius: 10px;
 }
 
 .todoTask {
     margin: 5px;
-    width: 100fr;
     background-color: white;
-    height: 30px;
     border-radius: 10px;
     border: 1px solid rgb(151, 151, 151);
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto auto auto; /* Adjust column widths as needed */
+    align-items: center;
     padding: 5px;
     font-size: 20px;
+    gap: 20px;
+}
+
+.todoTask span {
+   color: rgba(0, 0, 0, 0.534);
+}
+.todoTask input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        cursor: pointer;
+        border-radius: 5px;
+}
+
+.todoTask.importantTodo {
+    background-color: #70a8b9; 
 }
 
 .displayNone {
     display: none;
+}
+
+#create-project-container {
+   
+    z-index: 5;
+    background-color: white;
+    padding: 30px;
+    font-size: 20px;
+    width: 400px;
+    border-radius: 20px;
+    box-shadow: 4px -1px 55px -4px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 4px -1px 55px -4px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 4px -1px 55px -4px rgba(0, 0, 0, 0.75);
+    
+}
+#create-project.displayNone {
+    display: none;
+}
+
+#create-project {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#create-project-form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.todoTask button {
+    background-color: #ff4d4d; 
+    color: white; 
+    border: none; 
+    padding: 5px 10px;
+    margin-left: auto; 
+    cursor: pointer;
+    border-radius: 5px; 
+
+}
+
+.todoTask button:hover {
+    background-color: #6b0a0a; 
+}
+#createProjectBtn {
+    margin-left: 5%;
+}
+
+.tab {
+    font-size: 15px;
+    background: rgb(235,180,242);
+    background: linear-gradient(90deg, rgb(238, 190, 245) 0%, rgba(248,232,250,1) 100%);
+    border-radius: 5px;
+    margin: 5px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    color: rgb(37, 51, 40);
+}
+.tab.underline {
+    background: rgb(243, 187, 248);
+    background: linear-gradient(90deg, rgba(168, 78, 184, 0.623) 0%, rgba(248,232,250,1) 100%);
+}
+#todo-icon {
+    width: 60px;
+    height: 60px;
+       
+}
+#icon-container {
+    display: flex;
+    justify-content: space-between;
+}
+.daysLeft {
+    margin-left: 30px;
+    
+}
+
+.project-tab {
+    position: relative;
+}
+
+.project-tab button {
+    border: none;
+    margin-left: auto;
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: rgb(197, 168, 192);
+}
+
+.project-tab:hover button {
+    display: inline-block; 
+    font-size: 25px;
+    font-weight: bold;
+    background: none;
+    
+}
+
+.project-tab button:hover {
+    
+    
+    color: black
+    
 }

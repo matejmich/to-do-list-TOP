@@ -3,38 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="main.js" defer></script>
+    <title>To-Do List</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="content">
         <div id="todo-list">
-            <h1>// To do list</h1>
-            <div class="home">
-                <h2>Home</h2>
-                <div class="side-container" id="home-container">
-                    <div id="generalTitle" class="clickable tab">General</div>
-                    <div id="todayTitle" class="clickable tab">Today</div>
-                    <div id="completedTitle" class="clickable tab">Completed</div>
-                    <div id="projectsTitle" class="clickable tab">Projects</div>
-                </div>
+            <div id="icon-container">
+                <h1 id="todo-text">To do list</h1>
+                <img src="todo-icon.png" alt="icon" id="todo-icon">
+            </div>
+            <div id="home-container" class="side-container">
+                <div id="generalTitle" class="clickable tab underline" data-category="General">General</div>
+                <div id="todayTitle" class="clickable tab" data-category="Today">Today</div>
+                
             </div>
             <div id="projects">
                 <h2>Projects</h2>
-                <div class="side-container" id="projects-container">
-                    <!-- You can dynamically add projects here -->
+                <div id="projects-container" class="side-container">
+                    <!-- Projects will be dynamically added here -->
                 </div>
                 <button class="newBtn" id="createProjectBtn">+ Create Project</button>
             </div>
         </div>
         <div id="main">
-            <h1 id="mainCategoryTitle">Hello, select a folder and start adding Todos!</h1>
-            <p>A general list of todos</p>
+            <h1 id="mainCategoryTitle">Add your todos!</h1>
             <button class="newBtn" id="createTodoBtn">+ Create Todo</button>
-            <div id="todoTask-container">
-                
-            </div>
+            <div id="todoTask-container"></div>
         </div>
         <div id="create-todo" class="displayNone">
             <div class="blur"></div>
@@ -59,15 +54,18 @@
         <div id="create-project" class="displayNone">
             <div class="blur-p"></div>
             <div id="create-project-container">
-                <h1 class="x" id="closeTodo">&times;</h1>
+                <h1 class="x" id="closeProject">&times;</h1>
                 <h2>Create a new Project</h2>
+               <!-- Inside the project creation form -->
                 <form id="create-project-form">
                     <label for="project-name">Name</label>
-                        <input type="text" name="project-name" id="project-name" required>
-                    <button class="submitBtn" id="createTodoSubmit">Submit</button>
+                    <input type="text" name="project-name" id="project-name" required>
+                    <button class="submitBtn" id="createProjectSubmit">Submit</button>
                 </form>
             </div>
-        </div>
+         </div>
     </div>
+    </body>
+    <script src="main.js" defer></script>
 </body>
 </html>
